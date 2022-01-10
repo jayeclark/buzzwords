@@ -106,6 +106,7 @@ const GameList: React.FC = () => {
             <button
               onClick={() => dispatch(toggleIsOpen())}
               className="text-darkbrown p-2 hover:bg-primary hover:bg-opacity-50 rounded-md"
+              data-tip="Toggle games list"
             >
               <FontAwesomeIcon icon={faBars} />
             </button>
