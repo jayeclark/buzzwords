@@ -96,7 +96,7 @@ export const markGameAsSeen =
   (dispatch, getState) => {
     const game = getState().gamelist.games[gameId];
     if (!game) {
-      console.log('inf', gameId);
+      console.log("inf", gameId);
       updateLastSeenTurns(gameId, 9999);
       return;
     }
@@ -112,6 +112,16 @@ export const markGameAsSeen =
 
 export const createNewGame = (): AppThunk => async (dispatch) => {
   const res = await axios.post(getApiUrl("/game"));
+
+  await dispatch(refresh());
+  return res.data;
+};
+
+export const createNewAIGame = (): AppThunk => async (dispatch) => {
+  const res = await axios.post(getApiUrl("/game"), {
+    vsAI: true,
+    difficulty: 5,
+  });
 
   await dispatch(refresh());
   return res.data;
