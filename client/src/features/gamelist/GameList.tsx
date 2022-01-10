@@ -1,16 +1,12 @@
 import {
   faAngleDown,
-  faAngleLeft,
   faAngleRight,
   faBars,
-  faCaretDown,
-  faCaretRight,
   faHome,
-  faPlus,
   faQuestion,
   faSpinner,
-  faSync,
   faRobot,
+  faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -78,6 +74,7 @@ const GameList: React.FC = () => {
             href="https://github.com/ViciousFish/buzzwords"
             target="_blank"
             rel="noreferrer"
+            data-tip="Github repo"
           >
             <FontAwesomeIcon icon={faGithub} />
           </a>
@@ -86,6 +83,7 @@ const GameList: React.FC = () => {
             href="https://twitter.com/BuzzwordsGG"
             target="_blank"
             rel="noreferrer"
+            data-tip="Follow us on twitter"
           >
             <FontAwesomeIcon icon={faTwitter} /> BuzzwordsGG
           </a>
@@ -100,6 +98,7 @@ const GameList: React.FC = () => {
               )
             }
             to="/"
+            data-tip="Home"
           >
             <FontAwesomeIcon icon={faHome} />
           </NavLink>
@@ -130,13 +129,15 @@ const GameList: React.FC = () => {
                 onClick={() => {
                   dispatch(createNewGame());
                 }}
+                data-tip="Create new online game"
               >
-                <FontAwesomeIcon className="mx-1" icon={faPlus} />
+                <FontAwesomeIcon className="mx-1" icon={faGlobe} />
               </Button>
               <Button
                 onClick={() => {
                   dispatch(createNewAIGame());
                 }}
+                data-tip="Create new game vs. AI"
               >
                 <FontAwesomeIcon className="mx-1" icon={faRobot} />
               </Button>
@@ -144,6 +145,7 @@ const GameList: React.FC = () => {
                 onClick={() => {
                   dispatch(toggleTutorialModal());
                 }}
+                data-tip="Tutorial"
               >
                 <FontAwesomeIcon className="mx-1" icon={faQuestion} />
               </Button>
